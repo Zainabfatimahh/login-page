@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('bg.jpg') no-repeat center center/cover;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .login-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #fff; /* base thin border */
+  animation: neon-multi 3s infinite alternate;
+}
+
+/* Neon multi-color animation */
+@keyframes neon-multi {
+  0% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+  }
+  10% {
+    box-shadow: 0 0 5px #ff7f00, 0 0 10px #ff7f00, 0 0 15px #ff7f00, 0 0 20px #ff7f00;
+  }
+  20% {
+    box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00;
+  }
+  30% {
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+  }
+  70% {
+    box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff;
+  }
+  90% {
+    box-shadow: 0 0 5px #8b00ff, 0 0 10px #8b00ff, 0 0 15px #8b00ff, 0 0 20px #8b00ff;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+  }
+}
+
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .login-container label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .login-container input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-bottom: 15px;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 15px;
+    }
+
+    .social-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s, box-shadow 0.3s;
+      color: #333;
+    }
+
+    .social-btn img {
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+
+    .social-btn:hover {
+      background-color: #f0f0f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .social-btn.google {
+      border-color: #db4437;
+      color: #db4437;
+    }
+
+    .social-btn.facebook {
+      border-color: #4267B2;
+      color: #4267B2;
+    }
+
+    .login-container p {
+  margin-top: 15px;
+  color: #777;
+  font-size: 14px;
+  text-align: center; /* centers the text */
+}
+
+.login-container p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+
+    <!-- Social Login Buttons -->
+    <div class="social-login">
+      <a href="#" class="social-btn google">
+        <img src="google.png" alt="Google Icon">
+        Google
+      </a>
+      <a href="#" class="social-btn facebook">
+        <img src="facebook.png" alt="Facebook Icon">
+        Facebook
+      </a>
+    </div>
+
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+  </div>
+</body>
+</html>
